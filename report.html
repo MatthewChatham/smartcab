@@ -11959,7 +11959,7 @@ Run the agent.py file after setting the flags from projects/smartcab folder inst
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Load the &#39;sim_no-learning&#39; log file from the initial simulation results</span>
@@ -13149,6 +13149,7 @@ lTjBMjMzMzMzqxInWGZmZmZmZlXy/wGsKDFbYB27KAAAAABJRU5ErkJggg==
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong> It seems like all of these features are relevant. We obviously need the <code>waypoint</code> to determine which direction we should be going. We also need all of th <code>inputs</code>: At first I thought that the information about cars on the left and right were irrelevant, but what if a car on the left wants to move forward when we have a green light? We should wait for them to run their red light out of safety concerns. Finally, it seems like we will want to get <code>deadline</code> as well, since this may help us figure out how "rushed" we should be.</p>
+<p>UPDATE: I originally tried running this with all features. Further along, during tuning, I found that removing information about cars on our left and right improved performance. This makes sense, since it's rare that we care much about what these agents are doing, unless it's a safety concern. That was why I originally thought it made sense to include these features: If a car on our left wants to speed through the red light, we should let them proceed and not kill our passengers. Likewise on the right. But apparently the other agents in the world either follow the law or speed through reds relatively infrequently. In real life, of course, we might want to specially train a self-driving car to avoid and handle potentially dangerous situations.</p>
 
 </div>
 </div>
@@ -13243,7 +13244,7 @@ lTjBMjMzMzMzqxInWGZmZmZmZlXy/wGsKDFbYB27KAAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Load the &#39;sim_default-learning&#39; file from the default Q-Learning simulation</span>
@@ -14443,7 +14444,7 @@ You may also use a decaying function for $\alpha$ (the learning rate) if you so 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Load the &#39;sim_improved-learning&#39; file from the improved Q-Learning simulation</span>
